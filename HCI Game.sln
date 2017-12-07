@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{770203FE-3786-FB0B-BFF5-893546158001}") = "HCI Game", "Assembly-CSharp.csproj", "{932053FE-5B01-18CB-5023-6970667C5D52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{932053FE-5B01-18CB-5023-6970667C5D52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{932053FE-5B01-18CB-5023-6970667C5D52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{932053FE-5B01-18CB-5023-6970667C5D52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{932053FE-5B01-18CB-5023-6970667C5D52}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
