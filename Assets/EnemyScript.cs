@@ -6,12 +6,12 @@ public class EnemyScript : MonoBehaviour {
 bool isLeft = false;
 Vector3 left = new Vector3(-0.2f,0,0);
 Vector3 right = new Vector3(0.2f,0,0);
+	Vector3 start;
 
-Vector3 start = new Vector3(-21.0f, -12.5f, 0);
 public GameObject Player;
 	// Use this for initialization
 	void Start () {
-		
+		start = transform.position;		
 	}
 	
 	// Update is called once per frame
@@ -20,7 +20,7 @@ public GameObject Player;
 		if(transform.position.x >= 30f){
 			isLeft = true;
 		}
-		if(transform.position.x <= 3f){
+		if(transform.position.x <= start.x){
 			isLeft = false;
 		}
 		if(isLeft == false)
