@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -11,8 +12,10 @@ public class PlayerMovement : MonoBehaviour {
 	//public bool colliding;
 	// Use this for initialization
 	public bool isFalling = false;
+	Vector3 start;
 	
 	void Start () {
+		start = transform.position;		
 	}
 	
 	// Update is called once per frame
@@ -23,15 +26,24 @@ public class PlayerMovement : MonoBehaviour {
 		if(Input.GetKey(KeyCode.D)){
 			transform.position += Vector3.right * speed * Time.deltaTime;
 		}
-		if (Input.GetKey(KeyCode.Space) && isFalling == false)  //make a limit to how many times player can jump later
-    	{
-    		Debug.Log(transform.position.y);
-        GetComponent<Rigidbody2D>().AddForce(new Vector2(0,25), ForceMode2D.Impulse);
-        isFalling = true;
-   	    }
+		if (Input.GetKeyDown(KeyCode.Space) && !isFalling)  //make a limit to how many times player can jump later
+		{
+
+			float jumpTimer = Time.deltaTime * 120;
+			Vector2 curJumpSpeed = new Vector2 (0, 5* jumpTimer * 2 + 5f);
+			this.GetComponent<Rigidbody2D> ().velocity = curJumpSpeed;
+			isFalling = true;
+
+		}
+		if(transform.position.y < -20){
+			transform.position = start;
+		}
 	}
 
-	void OnCollisionEnter2D(){
+	void OnCollisionEnter2D(Collision2D collision){
+		if(collision.gameObject.name == "Goal"){
+			SceneManager.LoadScene (SceneManager.GetSceneAt(0).buildIndex + 1);
+		}
 		isFalling = false;
 	}
 }
