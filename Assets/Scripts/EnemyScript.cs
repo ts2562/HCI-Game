@@ -6,7 +6,7 @@ public class EnemyScript : MonoBehaviour {
 bool isLeft = false;
 Vector3 left = new Vector3(-0.2f,0,0);
 Vector3 right = new Vector3(0.2f,0,0);
-	Vector3 start;
+Vector3 start;
 
 public GameObject Player;
 	// Use this for initialization
@@ -31,7 +31,7 @@ public GameObject Player;
 
 	void OnTriggerEnter2D(Collider2D col){
      	if(col.gameObject.name == "Player"){
-     		Player.transform.position = start;
+			Player.transform.position = new Vector3(-19, -12, 0);
      	}
   
      }

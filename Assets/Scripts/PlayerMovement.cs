@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -11,8 +12,10 @@ public class PlayerMovement : MonoBehaviour {
 	//public bool colliding;
 	// Use this for initialization
 	public bool isFalling = false;
+	Vector3 start;
 	
 	void Start () {
+		start = transform.position;		
 	}
 	
 	// Update is called once per frame
@@ -32,9 +35,15 @@ public class PlayerMovement : MonoBehaviour {
 			isFalling = true;
 
 		}
+		if(transform.position.y < -20){
+			transform.position = start;
+		}
 	}
 
-	void OnCollisionEnter2D(){
+	void OnCollisionEnter2D(Collision2D collision){
+		if(collision.gameObject.name == "Goal"){
+			SceneManager.LoadScene (SceneManager.GetSceneAt(0).buildIndex + 1);
+		}
 		isFalling = false;
 	}
 }
